@@ -20,10 +20,23 @@ public class Gaulois {
 	      Gaulois asterix = new Gaulois("Astérix", 8);
 		
 		  System.out.println(asterix.getGaulois());
-
+	      //System.out.println(asterix);
 	}
+
+	
 	
 	public void parler(String chaine) {
 		System.out.println("Le gaulois " + nom + " : \"" +  chaine  + "\".");
 	}
+	
+	public void frapper(Romain romain) {
+		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
+	}
+	public char[] getRomain() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
 }
