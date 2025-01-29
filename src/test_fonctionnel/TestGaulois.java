@@ -1,40 +1,37 @@
 package test_fonctionnel;
 
-import personnages.Gaulois;
-import personnages.Romain;
+import personnages.*;
 
 public class TestGaulois {
-	public static void main (String[] args) {
-		
-      Gaulois asterix = new Gaulois("Astérix", 8);
-      Romain minus = new Romain ("Minus", 6);
-      System.out.println(asterix.getGaulois());
-      
-      asterix.parler("Bonjour a tous");
-	
-	  minus.parler(" UN GAU… UN GAUGAU… ");
-	  /*recevoicoup* et terminer question 10*/ 
-	 
-	  System.out.println(minus);
-	  System.out.println(asterix);
-	  for (int i = 0; i < 3; i++) {
-			asterix.frapper(minus);
-			minus.frapper(asterix);
-	  }
-	  
-	  
-	}
-	//  System.out.println(minus.getMinus());
-	  
-	 public double calculForce(double force) {
-			return force = force/3;
-			}         
-      
-    
+    public static void main(String[] args) {
+        // CrÃ©ation du druide et des personnages
+        Druide panoramix = new Druide("Panoramix", 5);
+        Gaulois asterix = new Gaulois("Asterix", 5);
+        Gaulois obelix = new Gaulois("ObÃ©lix", 15);
+        Gaulois assurancetourix = new Gaulois("Assurancetourix", 2);
+        Gaulois abraracourcix = new Gaulois("Abraracourcix", 5);
+        Gaulois agecanonix = new Gaulois("Agecanonix", 1);
+        Romain minus = new Romain("Minus", 6);
+
+        // Fabrication de potion
+        panoramix.fabriquerPotion();
+
+        // Distribution de la potion
+        panoramix.booster(asterix);
+        panoramix.booster(obelix);
+        panoramix.booster(assurancetourix);
+        panoramix.booster(abraracourcix);
+        panoramix.booster(agecanonix);
+
+        // DÃ©but du combat
+        System.out.println("DÃ©but du combat entre Asterix et Minus !");
+        while (!minus.estAterre() && !asterix.estAterre()) {
+            asterix.frapper(minus);
+            if (!minus.estAterre()) {
+                minus.frapper(asterix);
+            }
+        }
+    }
 }
-	
 
-
-	
-	
 

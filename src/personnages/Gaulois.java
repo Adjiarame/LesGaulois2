@@ -1,42 +1,36 @@
 package personnages;
 
-public class Gaulois {
-	private String nom;
-	private int force;
-	public Gaulois(String nom, int force) {
-		this.nom = nom;
-		this.force = force;
-	}
-	public String getGaulois() {
-		return nom;
-	}
-	
-	public int getForce() {
-		return force;
-	}
-	
-	public static void main (String[] args) {
-		
-	      Gaulois asterix = new Gaulois("Ast�rix", 8);
-		
-		  System.out.println(asterix.getGaulois());
-	      //System.out.println(asterix);
-	}
+public class Gaulois extends Personnage {
+    private double boostPotion = 1;
 
-	
-	
-	public void parler(String chaine) {
-		System.out.println("Le gaulois " + nom + " : \"" +  chaine  + "\".");
-	}
-	
-	public void frapper(Romain romain) {
-		System.out.println(nom + " envoie un grand coup dans la m�choire de " + romain.getNom());
-	}
-	public char[] getRomain() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Gaulois(String nom, int force) {
+        super(nom, force);
+    }
 
-	
-	
+    public void boirePotion(double puissance) {
+        boostPotion = puissance;
+    }
+
+    @Override
+    public void frapper(Personnage p) {
+        int forceCoup = (int) (getForce() * boostPotion);
+        System.out.println(getNom() + " donne un grand coup de force " + forceCoup + " à " + p.getNom() + ".");
+        p.recevoirCoup(forceCoup);
+        
+        // La puissance du boost diminue après chaque coup jusqu'à atteindre 1
+        if (boostPotion > 1) {
+            boostPotion = Math.max(1, boostPotion - 0.5);
+        }
+    }
+
+    @Override
+    public void parler(String chaine) {
+        System.out.println("Le gaulois " + getNom() + " : \"" + chaine + "\".");
+        System.out.println(donnerAuteur());
+    }
+
+    @Override
+    public void recevoirCoup(int forceCoup) {
+        System.out.println("Le gaulois " + getNom() + " : \"Aïe !\"");
+    }
 }
