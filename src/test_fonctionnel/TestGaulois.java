@@ -4,6 +4,7 @@ import personnages.*;
 
 public class TestGaulois {
     public static void main(String[] args) {
+
         // Création du druide et des personnages
         Druide panoramix = new Druide("Panoramix", 5);
         Gaulois asterix = new Gaulois("Asterix", 5);
@@ -31,7 +32,7 @@ public class TestGaulois {
                 minus.frapper(asterix);
             }
         }
+    
     }
 }
-
-
+       
